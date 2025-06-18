@@ -6,9 +6,10 @@ const reviewSchema = new mongoose.Schema({
     ref: 'Book',
     required: true
   },
-  user: {
-    type: String, // baad me: connect with real user model
-    required: true
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
   },
   rating: {
     type: Number,

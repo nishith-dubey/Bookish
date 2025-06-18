@@ -19,6 +19,10 @@ const bookSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
+  numberOfReviews: {
+    type: Number,
+    default: 0,
+  },
   coverImage: {
     type: String
   }
