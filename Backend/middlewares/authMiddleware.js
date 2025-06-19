@@ -7,7 +7,7 @@ export const authenticate = (req, res, next) => {
   }
 
   const token = authHeader.token;
-
+  console.log(token)
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = {

@@ -47,8 +47,8 @@ export const registerUser = async (req, res) => {
     if (!username || !email || !password) {
       return res.status(400).json({ message: 'Username, email, and password are required' });
     }
-
-    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+    
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(409).json({ message: 'Username or email already exists' });
     }
