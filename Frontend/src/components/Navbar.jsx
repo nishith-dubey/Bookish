@@ -7,6 +7,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user)
   const handleLogout = () => {
     localStorage.removeItem("user");
     navigate("/auth");
@@ -37,7 +38,7 @@ const Navbar = () => {
         <div className="hidden md:flex md:items-center md:space-x-6">
           {user ? (
             <>
-              {user.user.role === 'admin' && (
+              {user?.user?.role === 'admin' && (
                 <Link to="/admin" className={`${buttonClasses} bg-green-400 hover:bg-green-500`}>
                   Manage Books
                 </Link>
