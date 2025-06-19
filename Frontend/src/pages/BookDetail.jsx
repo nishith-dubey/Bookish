@@ -113,18 +113,15 @@ const BookDetail = () => {
           </div>
         </div>
 
-        {/* Reviews Section */}
         <h2 className="text-3xl font-black mb-6 text-black">Reviews</h2>
         <div className="space-y-6 mb-12">
           {reviews.length > 0 ? (
             reviews.map((review) => (
-              // Neobrutalist review card
               <div
                 key={review._id}
                 className="bg-white border-2 border-black p-4 shadow-[6px_6px_0px_#60A5FA]"
               >
                 {" "}
-                {/* Blue shadow */}
                 <p className="font-bold text-lg">
                   {usernames[review.userId] || "..."}
                 </p>

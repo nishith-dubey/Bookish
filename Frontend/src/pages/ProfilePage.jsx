@@ -1,10 +1,6 @@
-// src/pages/ProfilePage.jsx
-
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-// You might need to create this action if you want to update Redux state
-// import { setUser } from '../redux/slices/authSlice';
 
 const ProfilePage = () => {
   const { user } = useSelector((state) => state.auth);
@@ -55,7 +51,7 @@ const ProfilePage = () => {
     }
 
     setLoading(true);
-    
+
     const updatePayload = { username: formData.username };
     if (formData.password) {
       updatePayload.password = formData.password;
@@ -68,12 +64,8 @@ const ProfilePage = () => {
         apiConfig
       );
 
-      // Update localStorage to keep user info consistent across the app
       const updatedUser = { ...user, user: data.user };
       localStorage.setItem("user", JSON.stringify(updatedUser));
-
-      // Optional: If using Redux, dispatch an action to update the state
-      // dispatch(setUser(updatedUser));
 
       setSuccess("Profile updated successfully!");
       setIsEditing(false);

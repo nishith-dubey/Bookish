@@ -28,11 +28,10 @@ const AdminPanel = () => {
   const buttonClasses =
     "border-2 border-black w-full px-6 py-3 font-bold shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] hover:-translate-y-0.5 hover:-translate-x-0.5 transition-all disabled:bg-zinc-400 disabled:shadow-none disabled:cursor-not-allowed";
 
-  // Data Fetching
   const fetchBooks = async () => {
     setLoadingBooks(true);
     try {
-      const { data } = await axios.get(`${apiBaseUrl}/books?limit=200`); // Get all books
+      const { data } = await axios.get(`${apiBaseUrl}/books?limit=200`);
       setBooks(data.books);
     } catch (err) {
       console.error("Failed to fetch books:", err);
@@ -45,7 +44,6 @@ const AdminPanel = () => {
     fetchBooks();
   }, []);
 
-  // Form Handlers
   const clearForm = () => {
     setForm({
       title: "",
@@ -68,7 +66,7 @@ const AdminPanel = () => {
       genre: book.genre,
       coverImage: book.coverImage,
     });
-    setActiveTab("add"); // Switch to the form tab
+    setActiveTab("add");
   };
 
   const handleCancelEdit = () => {
@@ -84,7 +82,7 @@ const AdminPanel = () => {
     ) {
       try {
         const res = await axios.delete(`${apiBaseUrl}/books/${bookId}`, apiConfig);
-        fetchBooks(); // Refresh the list
+        fetchBooks();
       } catch (err) {
         alert("Failed to delete the book.");
         console.error("Delete error:", err);
@@ -111,7 +109,7 @@ const AdminPanel = () => {
           : "Book added successfully!"
       );
       clearForm();
-      fetchBooks(); // Refresh the list
+      fetchBooks();
       setTimeout(() => {
         setFormSuccess("");
         setActiveTab("manage");
@@ -123,7 +121,6 @@ const AdminPanel = () => {
     }
   };
 
-  // Authorization Guard
   if (!user || user.user.role !== "admin") {
     return (
       <div className="bg-amber-50 min-h-screen pt-24 flex items-center justify-center p-4">
@@ -139,7 +136,6 @@ const AdminPanel = () => {
       <div className="container mx-auto p-4">
         <h1 className="text-4xl font-black mb-8">Admin Dashboard</h1>
 
-        {/* Tab Navigation */}
         <div className="flex border-b-4 border-black mb-8">
           <button
             onClick={() => setActiveTab("manage")}
@@ -162,7 +158,6 @@ const AdminPanel = () => {
           </button>
         </div>
 
-        {/* Manage Books Tab Content */}
         {activeTab === "manage" && (
           <div className="bg-white p-6 border-4 border-black shadow-[8px_8px_0px_#000]">
             <h2 className="text-2xl font-black mb-4">Existing Books</h2>
@@ -206,7 +201,6 @@ const AdminPanel = () => {
           </div>
         )}
 
-        {/* Add/Edit Book Tab Content */}
         {activeTab === "add" && (
           <div className="bg-white border-4 border-black p-8 shadow-[10px_10px_0px_#000]">
             <h2 className="text-3xl font-black text-black mb-6">

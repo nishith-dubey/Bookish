@@ -7,7 +7,6 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user)
   const handleLogout = () => {
     localStorage.removeItem("user");
     navigate("/auth");
@@ -15,11 +14,9 @@ const Navbar = () => {
 
   const toggleMenu = () => setMenuOpen(prev => !prev);
 
-  // Reusable button classes for Neobrutalism style
   const buttonClasses = "border-2 border-black px-4 py-2 font-bold shadow-[4px_4px_0px_#000] hover:shadow-[1px_1px_0px_#000] hover:translate-y-0.5 hover:translate-x-0.5 transition-all";
 
   return (
-    // Neobrutalism Navbar: solid color, thick bottom border
     <nav className="bg-white text-black border-b-4 border-black fixed w-full block z-[1000]">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
@@ -27,14 +24,12 @@ const Navbar = () => {
           <span className="text-2xl font-black">Bookish</span>
         </Link>
 
-        {/* Mobile menu button */}
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-black">
             {menuOpen ? <FaTimes size={28} /> : <FaBars size={28} />}
           </button>
         </div>
 
-        {/* Desktop Navigation Links */}
         <div className="hidden md:flex md:items-center md:space-x-6">
           {user ? (
             <>
@@ -59,7 +54,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       {menuOpen && (
         <div className="md:hidden bg-white border-t-4 border-black p-4">
           {user ? (

@@ -11,7 +11,6 @@ const ReviewForm = ({ bookId, onReviewSubmitted }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // Reusable style constants
   const inputClasses = "w-full p-3 bg-white border-2 border-black focus:outline-none focus:ring-2 focus:ring-yellow-400 font-medium";
   const buttonClasses = "border-2 border-black px-6 py-3 font-bold shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] hover:-translate-y-0.5 hover:-translate-x-0.5 transition-all disabled:bg-zinc-400 disabled:shadow-none disabled:cursor-not-allowed";
 
@@ -51,7 +50,6 @@ const ReviewForm = ({ bookId, onReviewSubmitted }) => {
   }
 
   return (
-    // Neobrutalist form container
     <form onSubmit={submitReview} className="bg-lime-200 border-4 border-black p-6 shadow-[8px_8px_0px_#000]">
       <h3 className="text-2xl font-black mb-4 text-black">Submit a Review</h3>
       

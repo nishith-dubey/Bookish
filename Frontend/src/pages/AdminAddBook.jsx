@@ -14,7 +14,6 @@ const AdminAddBook = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  // Reusable style constants
   const inputClasses = "w-full mb-4 p-3 bg-white border-2 border-black focus:outline-none focus:ring-2 focus:ring-blue-400 font-medium";
   const buttonClasses = "border-2 border-black w-full px-6 py-3 font-bold shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] hover:-translate-y-0.5 hover:-translate-x-0.5 transition-all disabled:bg-zinc-400 disabled:shadow-none disabled:cursor-not-allowed";
 

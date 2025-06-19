@@ -5,7 +5,6 @@ import Book from "../models/book.model.js";
 export const getReviews = async (req, res) => {
   try {
     const { bookId } = req.query;
-    console.log(bookId)
     if (!bookId) {
       return res.status(400).json({ message: "Book ID is required in query." });
     }

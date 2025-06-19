@@ -11,7 +11,6 @@ const AuthForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // Reusable style constants
   const inputClasses = "w-full p-3 bg-white border-2 border-black focus:outline-none focus:ring-2 focus:ring-blue-400 font-medium";
   const buttonClasses = "border-2 border-black w-full px-6 py-3 font-bold shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] hover:-translate-y-0.5 hover:-translate-x-0.5 transition-all disabled:bg-zinc-400 disabled:shadow-none disabled:cursor-not-allowed";
 
@@ -35,7 +34,6 @@ const AuthForm = () => {
   };
 
   return (
-    // Main container with padding for fixed navbar, centers the form
     <div className="bg-amber-50 min-h-screen pt-24 flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white border-4 border-black p-8 shadow-[10px_10px_0px_#000]">
         <h2 className="text-3xl font-black text-black mb-6 text-center">
